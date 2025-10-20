@@ -6,7 +6,7 @@
     border-radius: 2rem 2rem 0 0;
     transition: filter 0.3s, transform 0.3s;
 }
-.curso-card {
+    .curso-card {
     min-height: 410px;
     border-radius: 2rem;
     box-shadow: 0 8px 32px 0 var(--color-mauve), 0 1.5px 8px 0 var(--color-purple);
