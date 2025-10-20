@@ -108,29 +108,31 @@
                         <p class="card-text">${curso.descripcion}</p>
                         <button class="btn btn-sm btn-warning me-2" onclick="editarCurso(${curso.id})">Editar</button>
                         <button class="btn btn-sm btn-danger" onclick="eliminarCurso(${curso.id})">Eliminar</button>
-    window.eliminarCurso = function(id) {
-        if (!confirm('¿Seguro que deseas eliminar este curso?')) return;
-        const formData = new FormData();
-        formData.append('id', id);
-        fetch('php/cursos.php?action=eliminar', {
-            method: 'POST',
-            body: formData
-        })
-        .then(r => r.json())
-        .then(data => {
-            if (data.success) {
-                cargarCursos();
-                showToast('Curso eliminado correctamente', true);
-            } else {
-                showToast(data.msg || 'Error al eliminar', false);
-            }
-        });
-    }
                     </div>
                 </div>
             `;
             cursosLista.appendChild(col);
         });
+    // Fin de renderCursos
+// Definir eliminarCurso solo una vez
+window.eliminarCurso = function(id) {
+    if (!confirm('¿Seguro que deseas eliminar este curso?')) return;
+    const formData = new FormData();
+    formData.append('id', id);
+    fetch('php/cursos.php?action=eliminar', {
+        method: 'POST',
+        body: formData
+    })
+    .then(r => r.json())
+    .then(data => {
+        if (data.success) {
+            cargarCursos();
+            showToast('Curso eliminado correctamente', true);
+        } else {
+            showToast(data.msg || 'Error al eliminar', false);
+        }
+    });
+}
     }
 
     function cargarCursos() {

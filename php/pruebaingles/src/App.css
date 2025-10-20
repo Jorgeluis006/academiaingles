@@ -1,0 +1,88 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  background: #fefce8;
+  color: #3b0764;
+}
+
+.admin-container, .cursos-container, .home-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+.admin-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.admin-form input, .admin-form textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.7rem;
+  padding: 0.5rem;
+  border-radius: 0.7rem;
+  border: 1px solid #ddd;
+}
+.admin-form button {
+  margin-right: 0.7rem;
+  background: #7c3aed;
+  color: #fff;
+  border: none;
+  border-radius: 1rem;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+}
+.admin-msg {
+  margin-top: 1rem;
+  color: #6d28d9;
+  font-weight: 600;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}

@@ -1,3 +1,10 @@
+
+<?php
+// API para listar, agregar, editar y eliminar cursos (solo admin)
+require_once 'db.php';
+
+$action = $_GET['action'] ?? '';
+
 if ($action === 'eliminar' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['id'] ?? '';
     if ($id) {
@@ -11,11 +18,6 @@ if ($action === 'eliminar' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     echo json_encode(['success' => false, 'msg' => 'Falta el id']);
     exit;
 }
-<?php
-// API para listar, agregar y editar cursos (solo admin)
-require_once 'db.php';
-
-$action = $_GET['action'] ?? '';
 
 if ($action === 'listar') {
     $result = $conn->query("SELECT * FROM cursos ORDER BY id ASC");
