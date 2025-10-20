@@ -9,13 +9,13 @@
 .curso-card {
     min-height: 410px;
     border-radius: 2rem;
-    box-shadow: 0 8px 32px 0 #c89ab2cc, 0 1.5px 8px 0 #791eba22;
+    box-shadow: 0 8px 32px 0 var(--color-mauve), 0 1.5px 8px 0 var(--color-purple);
     overflow: hidden;
     position: relative;
     transition: box-shadow 0.3s, transform 0.2s;
 }
 .curso-card:hover {
-    box-shadow: 0 16px 48px 0 #791eba55, 0 2px 16px 0 #c89ab2;
+    box-shadow: 0 16px 48px 0 var(--color-purple), 0 2px 16px 0 var(--color-mauve);
     transform: translateY(-6px) scale(1.025);
 }
 .curso-card:hover img {
@@ -23,7 +23,7 @@
     transform: scale(1.04);
 }
 .curso-card .card-body {
-    background: rgba(255,255,255,0.97);
+    background: var(--color-cream);
     border-radius: 0 0 2rem 2rem;
     padding: 2rem 1.2rem 1.2rem 1.2rem;
     position: relative;
@@ -36,7 +36,7 @@
     font-weight: 700;
     margin-bottom: 0.7rem;
     letter-spacing: 1px;
-    text-shadow: 0 2px 8px #c89ab244;
+    text-shadow: 0 2px 8px var(--color-mauve);
 }
 .curso-card .card-text {
     color: var(--color-dark);
@@ -48,13 +48,13 @@
     display: block;
     position: absolute;
     left: 0; top: 0; width: 100%; height: 100%;
-    background: linear-gradient(180deg, #fff0 60%, #c89ab222 100%);
+    background: linear-gradient(180deg, #fff0 60%, var(--color-mauve) 100%);
     z-index: 1;
     pointer-events: none;
     transition: background 0.3s;
 }
 .curso-card:hover::before {
-    background: linear-gradient(180deg, #fff0 40%, #791eba33 100%);
+    background: linear-gradient(180deg, #fff0 40%, var(--color-purple) 100%);
 }
 /* Estilos base para sitio responsivo */
 @import url('palette.css');
@@ -228,6 +228,146 @@ h1, h2, h3, h4, h5 {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     letter-spacing: 1px;
+}
+
+/* --- ADMIN PANEL MODERN STYLES --- */
+.curso-card {
+    background: rgba(255,255,255,0.85);
+    box-shadow: 0 6px 32px 0 #c89ab2;
+    border-radius: 1.2rem;
+    border: 1px solid #f3e6f5;
+    transition: box-shadow 0.2s, transform 0.2s;
+    overflow: hidden;
+    position: relative;
+}
+.curso-card:hover {
+    box-shadow: 0 12px 48px 0 #791eba44;
+    transform: translateY(-6px) scale(1.03);
+}
+.curso-card img {
+    border-radius: 1.2rem 1.2rem 0 0;
+    box-shadow: 0 2px 12px 0 #c89ab233;
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+.curso-card .card-body {
+    padding: 1.2rem 1rem 1rem 1rem;
+    background: rgba(255,255,255,0.95);
+    border-radius: 0 0 1.2rem 1.2rem;
+}
+.curso-card .btn {
+    border-radius: 1.2rem;
+    font-weight: 600;
+    font-size: 0.98rem;
+    box-shadow: 0 2px 8px 0 #c89ab2;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.curso-card .btn-warning {
+    background: linear-gradient(90deg, var(--color-yellow) 60%, var(--color-orange) 100%);
+    color: var(--color-purple);
+    border: none;
+}
+.curso-card .btn-warning:hover {
+    background: linear-gradient(90deg, var(--color-orange) 60%, var(--color-yellow) 100%);
+    color: #fff;
+    box-shadow: 0 4px 16px 0 var(--color-mauve);
+    transform: scale(1.05);
+}
+.curso-card .btn-danger {
+    background: linear-gradient(90deg, #ff6f61 60%, var(--color-mauve) 100%);
+    color: #fff;
+    border: none;
+}
+.curso-card .btn-danger:hover {
+    background: linear-gradient(90deg, var(--color-mauve) 60%, #ff6f61 100%);
+    color: #fff;
+    box-shadow: 0 4px 16px 0 var(--color-mauve);
+    transform: scale(1.05);
+}
+
+#form-curso {
+     background: var(--color-cream);
+    box-shadow: 0 4px 24px 0 #c89ab2;
+    border-radius: 1.2rem;
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    margin-top: 1.5rem;
+    border: 1px solid #f3e6f5;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#form-curso h5 {
+    color: var(--color-purple);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+#form-curso label {
+    color: var(--color-dark);
+    font-weight: 600;
+}
+#form-curso .form-control {
+    border-radius: 1rem;
+     border: 1px solid var(--color-mauve);
+     box-shadow: 0 1px 6px 0 var(--color-mauve);
+    margin-bottom: 0.5rem;
+}
+#form-curso .btn-primary {
+     background: linear-gradient(90deg, var(--color-mauve) 60%, var(--color-purple) 100%);
+     color: #fff;
+     border: none;
+     border-radius: 1.2rem;
+     font-weight: 600;
+     box-shadow: 0 2px 8px 0 var(--color-mauve);
+     transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+#form-curso .btn-primary:hover {
+     background: linear-gradient(90deg, var(--color-purple) 60%, var(--color-mauve) 100%);
+     color: var(--color-yellow);
+     box-shadow: 0 4px 16px 0 var(--color-mauve);
+    transform: scale(1.04);
+}
+#form-curso .btn-secondary {
+    border-radius: 1.2rem;
+    font-weight: 600;
+     background: var(--color-mauve);
+     color: var(--color-purple);
+     border: none;
+     box-shadow: 0 2px 8px 0 var(--color-mauve);
+     margin-left: 0.5rem;
+     transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+#form-curso .btn-secondary:hover {
+     background: var(--color-purple);
+     color: #fff;
+     box-shadow: 0 4px 16px 0 var(--color-mauve);
+    transform: scale(1.04);
+}
+#img-preview {
+    border-radius: 1rem;
+     box-shadow: 0 2px 12px 0 var(--color-mauve);
+    margin-bottom: 1rem;
+    max-width: 180px;
+    max-height: 120px;
+    display: block;
+}
+
+@media (max-width: 900px) {
+    .curso-card {
+        margin-bottom: 1.2rem;
+    }
+    #form-curso {
+        padding: 1.2rem 0.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .curso-card {
+        font-size: 0.98rem;
+    }
+    #form-curso {
+        padding: 1rem 0.2rem;
+    }
 }
 
 /* Mascota */
