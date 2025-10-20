@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Cursos from './pages/Cursos';
 import Admin from './pages/Admin';
+import EditarCurso from './pages/EditarCurso';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/cursos" element={<Cursos />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/editar-curso" element={<EditarCurso />} />
       </Routes>
     </BrowserRouter>
   );

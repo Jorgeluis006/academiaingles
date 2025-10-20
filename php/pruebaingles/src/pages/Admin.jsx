@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Modal({ open, onClose, children }) {
   if (!open) return null;
@@ -16,6 +17,7 @@ function Modal({ open, onClose, children }) {
 }
 
 function Admin() {
+  const navigate = useNavigate();
   const [cursos, setCursos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [form, setForm] = useState({ id: '', titulo: '', descripcion: '', imagen: '' });
@@ -64,9 +66,7 @@ function Admin() {
   };
 
   const editarCurso = curso => {
-    setForm(curso);
-    setEditando(true);
-    setMsg('');
+    navigate('/editar-curso', { state: { curso } });
   };
 
   const eliminarCurso = async id => {
@@ -119,16 +119,7 @@ function Admin() {
           )
         )}
       </div>
-      <Modal open={editando} onClose={() => { setEditando(false); setForm({ id: '', titulo: '', descripcion: '', imagen: '' }); }}>
-        <h4>Editar curso</h4>
-        <form onSubmit={guardarCurso}>
-          <input name="titulo" value={form.titulo} onChange={handleForm} placeholder="Título" required />
-          <textarea name="descripcion" value={form.descripcion} onChange={handleForm} placeholder="Descripción" required />
-          <input name="imagen" value={form.imagen} onChange={handleForm} placeholder="URL de imagen" required />
-          {form.imagen && <img src={form.imagen} alt="preview" style={{width:'100%',maxHeight:120,objectFit:'cover',borderRadius:'0.7rem',margin:'1rem 0'}} />}
-          <button type="submit" className="btn btn-primary">Guardar cambios</button>
-        </form>
-      </Modal>
+      {/* El formulario de edición ahora está en la página EditarCurso */}
     </div>
   );
 }
