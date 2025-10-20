@@ -4,164 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuestros Cursos | Atisbe</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-5.0.2-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/palette.css">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"/>
-    <style>
-        .curso-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 1.2rem 1.2rem 0 0;
-        }
-        .curso-card {
-            min-height: 370px;
-        }
-        .carousel-indicators [data-bs-target] {
-            background-color: var(--color-purple);
-        }
-        .cursos-titulo {
-            color: var(--color-purple);
-            font-weight: 700;
-        }
-        .cursos-sub {
-            color: var(--color-mauve);
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-        .grupos-limitados {
-            background: linear-gradient(90deg, var(--color-yellow) 60%, var(--color-orange) 100%);
-            color: var(--color-dark);
-            font-weight: bold;
-            border-radius: 1rem;
-            padding: 0.7rem 1.5rem;
-            display: inline-block;
-            margin: 1.5rem auto 2rem auto;
-            box-shadow: 0 2px 12px 0 #c89ab2;
-            font-size: 1.1rem;
-        }
-    </style>
 </head>
 <body>
-    <header class="header">
-        <div class="header-logo">Atisbe</div>
-        <nav class="header-nav">
-            <a href="index.html">Inicio</a>
-            <a href="quienessomos.html">Quiénes somos</a>
-            <a href="cursos.html">Nuestros cursos</a>
-            <a href="login.html">Login</a>
-        </nav>
+    <header class="bg-light py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h1 class="h4 mb-0">Atisbe</h1>
+            <nav>
+                <a href="index.html" class="btn btn-link">Inicio</a>
+                <a href="quienessomos.html" class="btn btn-link">Quiénes somos</a>
+                <a href="cursos.html" class="btn btn-warning">Nuestros cursos</a>
+                <a href="login.html" class="btn btn-outline-primary">Login</a>
+            </nav>
+        </div>
     </header>
     <main>
-    <section class="container-fluid py-5 text-center" style="max-width:100vw;" data-aos="fade-up">
-            <h1 class="cursos-titulo mb-2 animate__animated animate__fadeInDown">Nuestros cursos</h1>
-            <div class="cursos-sub mb-3 animate__animated animate__fadeIn">¡Atendemos 24/7!</div>
-            <div class="grupos-limitados animate__animated animate__pulse animate__infinite">Grupos limitados por curso</div>
-            <div id="cursosCarousel" class="carousel slide mt-4 animate__animated animate__fadeInUp" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="row g-4 justify-content-center align-items-stretch">
-                            <div class="col-12 col-md-6 col-lg-4 col-xl-3 d-flex" data-aos="zoom-in" data-aos-delay="100">
-                                <div class="card curso-card shadow-sm flex-fill" style="min-width:320px;max-width:100%;">
-                                    <img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&w=800&q=80" alt="Inglés">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Inglés</h5>
-                                        <p class="card-text">Aprende inglés con un enfoque práctico, divertido y personalizado para todas las edades y niveles.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-4 col-xl-3 d-flex" data-aos="zoom-in" data-aos-delay="200">
-                                <div class="card curso-card shadow-sm flex-fill" style="min-width:320px;max-width:100%;">
-                                    <img src="https://images.pexels.com/photos/196652/pexels-photo-196652.jpeg?auto=compress&w=800&q=80" alt="Francés">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Francés</h5>
-                                        <p class="card-text">Descubre la lengua y cultura francesa con clases dinámicas y adaptadas a tus objetivos.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-4 col-xl-3 d-flex" data-aos="zoom-in" data-aos-delay="300">
-                                <div class="card curso-card shadow-sm flex-fill" style="min-width:320px;max-width:100%;">
-                                    <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&w=800&q=80" alt="Español para extranjeros">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Español para extranjeros</h5>
-                                        <p class="card-text">Vive el español como una experiencia cultural y comunicativa, con clases para todos los niveles.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-4 col-xl-3 d-flex" data-aos="zoom-in" data-aos-delay="400">
-                                <div class="card curso-card shadow-sm flex-fill" style="min-width:320px;max-width:100%;">
-                                    <img src="https://images.pexels.com/photos/1181355/pexels-photo-1181355.jpeg?auto=compress&w=800&q=80" alt="Club Conversacional">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Club Conversacional</h5>
-                                        <p class="card-text">Mejora tu fluidez y confianza conversando en grupo, con temas actuales y actividades interactivas.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row g-4 justify-content-center align-items-stretch">
-                            <div class="col-12 col-md-6 col-lg-4 col-xl-3 d-flex" data-aos="zoom-in" data-aos-delay="100">
-                                <div class="card curso-card shadow-sm flex-fill" style="min-width:320px;max-width:100%;">
-                                    <img src="https://images.pexels.com/photos/3808094/pexels-photo-3808094.jpeg?auto=compress&w=800&q=80" alt="ConversArte">
-                                    <div class="card-body">
-                                        <h5 class="card-title">ConversArte</h5>
-                                        <p class="card-text">Aprende idiomas a través del arte, la música y la creatividad, en un ambiente inspirador y divertido.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-4 col-xl-3 d-flex" data-aos="zoom-in" data-aos-delay="200">
-                                <div class="card curso-card shadow-sm flex-fill" style="min-width:320px;max-width:100%;">
-                                    <img src="https://images.pexels.com/photos/1695052/pexels-photo-1695052.jpeg?auto=compress&w=800&q=80" alt="Tour Cafetero">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Tour Cafetero</h5>
-                                        <p class="card-text">Vive una experiencia lingüística y cultural única, explorando el mundo del café y practicando idiomas.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-4 col-xl-3 d-flex">
-                                <div class="card curso-card shadow-sm flex-fill" style="min-width:320px;max-width:100%;">
-                                    <img src="https://images.pexels.com/photos/861331/pexels-photo-861331.jpeg?auto=compress&w=800&q=80" alt="Cursos para niños">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Cursos para niños</h5>
-                                        <p class="card-text">Clases lúdicas y personalizadas para los más pequeños, fomentando el amor por los idiomas desde el inicio.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-4 col-xl-3 d-flex">
-                                <div class="card curso-card shadow-sm flex-fill" style="min-width:320px;max-width:100%;">
-                                    <img src="https://images.pexels.com/photos/4145196/pexels-photo-4145196.jpeg?auto=compress&w=800&q=80" alt="Clases personalizadas">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Clases personalizadas</h5>
-                                        <p class="card-text">Diseñamos un plan de estudio a tu medida, adaptándonos a tus metas, ritmo y necesidades específicas.</p>
-                                    </div>
-                                </div>
-                            </div>
+        <div class="container py-5">
+            <h2 class="text-center text-primary mb-4">Nuestros Cursos</h2>
+            <div class="row g-4">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card shadow-sm">
+                        <img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&w=800&q=80" class="card-img-top" alt="Inglés">
+                        <div class="card-body">
+                            <h5 class="card-title">Inglés</h5>
+                            <p class="card-text">Aprende inglés con un enfoque práctico, divertido y personalizado para todas las edades y niveles.</p>
                         </div>
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#cursosCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Anterior</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#cursosCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Siguiente</span>
-                </button>
-                <div class="carousel-indicators mt-4">
-                    <button type="button" data-bs-target="#cursosCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#cursosCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card shadow-sm">
+                        <img src="https://images.pexels.com/photos/196652/pexels-photo-196652.jpeg?auto=compress&w=800&q=80" class="card-img-top" alt="Francés">
+                        <div class="card-body">
+                            <h5 class="card-title">Francés</h5>
+                            <p class="card-text">Descubre la lengua y cultura francesa con clases dinámicas y adaptadas a tus objetivos.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card shadow-sm">
+                        <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&w=800&q=80" class="card-img-top" alt="Español para extranjeros">
+                        <div class="card-body">
+                            <h5 class="card-title">Español para extranjeros</h5>
+                            <p class="card-text">Vive el español como una experiencia cultural y comunicativa, con clases para todos los niveles.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card shadow-sm">
+                        <img src="https://images.pexels.com/photos/1181355/pexels-photo-1181355.jpeg?auto=compress&w=800&q=80" class="card-img-top" alt="Club Conversacional">
+                        <div class="card-body">
+                            <h5 class="card-title">Club Conversacional</h5>
+                            <p class="card-text">Mejora tu fluidez y confianza conversando en grupo, con temas actuales y actividades interactivas.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card shadow-sm">
+                        <img src="https://images.pexels.com/photos/3808094/pexels-photo-3808094.jpeg?auto=compress&w=800&q=80" class="card-img-top" alt="ConversArte">
+                        <div class="card-body">
+                            <h5 class="card-title">ConversArte</h5>
+                            <p class="card-text">Aprende idiomas a través del arte, la música y la creatividad, en un ambiente inspirador y divertido.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card shadow-sm">
+                        <img src="https://images.pexels.com/photos/1695052/pexels-photo-1695052.jpeg?auto=compress&w=800&q=80" class="card-img-top" alt="Tour Cafetero">
+                        <div class="card-body">
+                            <h5 class="card-title">Tour Cafetero</h5>
+                            <p class="card-text">Vive una experiencia lingüística y cultural única, explorando el mundo del café y practicando idiomas.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card shadow-sm">
+                        <img src="https://images.pexels.com/photos/861331/pexels-photo-861331.jpeg?auto=compress&w=800&q=80" class="card-img-top" alt="Cursos para niños">
+                        <div class="card-body">
+                            <h5 class="card-title">Cursos para niños</h5>
+                            <p class="card-text">Clases lúdicas y personalizadas para los más pequeños, fomentando el amor por los idiomas desde el inicio.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card shadow-sm">
+                        <img src="https://images.pexels.com/photos/4145196/pexels-photo-4145196.jpeg?auto=compress&w=800&q=80" class="card-img-top" alt="Clases personalizadas">
+                        <div class="card-body">
+                            <h5 class="card-title">Clases personalizadas</h5>
+                            <p class="card-text">Diseñamos un plan de estudio a tu medida, adaptándonos a tus metas, ritmo y necesidades específicas.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
     </main>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-        <script>
-            AOS.init({ duration: 900, once: true });
-        </script>
-        <script src="js/main.js"></script>
+    <script src="css/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
