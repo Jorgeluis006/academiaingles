@@ -1,5 +1,20 @@
 import React, { useEffect, useState } from 'react';
 
+function Modal({ open, onClose, children }) {
+  if (!open) return null;
+  return (
+    <div style={{
+      position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh',
+      background: 'rgba(44, 41, 61, 0.25)', zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center'
+    }}>
+      <div style={{ background: '#fff', borderRadius: '1rem', boxShadow: '0 4px 32px rgba(44,41,61,0.18)', padding: '2rem', minWidth: 350, maxWidth: 420 }}>
+        {children}
+        <button style={{marginTop: '1rem'}} className="btn btn-warning" onClick={onClose}>Cerrar</button>
+      </div>
+    </div>
+  );
+}
+
 function Admin() {
   const [cursos, setCursos] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -75,13 +90,12 @@ function Admin() {
     <div className="admin-container">
       <h2>Panel de Administración</h2>
       <div className="admin-form">
-        <h4>{editando ? 'Editar curso' : 'Agregar nuevo curso'}</h4>
+        <h4>Agregar nuevo curso</h4>
         <form onSubmit={guardarCurso}>
           <input name="titulo" value={form.titulo} onChange={handleForm} placeholder="Título" required />
           <textarea name="descripcion" value={form.descripcion} onChange={handleForm} placeholder="Descripción" required />
           <input name="imagen" value={form.imagen} onChange={handleForm} placeholder="URL de imagen" required />
-          <button type="submit">{editando ? 'Guardar cambios' : 'Agregar curso'}</button>
-          {editando && <button type="button" onClick={() => { setEditando(false); setForm({ id: '', titulo: '', descripcion: '', imagen: '' }); }}>Cancelar</button>}
+          <button type="submit">Agregar curso</button>
         </form>
         {msg && <div className="admin-msg">{msg}</div>}
       </div>
@@ -105,6 +119,16 @@ function Admin() {
           )
         )}
       </div>
+      <Modal open={editando} onClose={() => { setEditando(false); setForm({ id: '', titulo: '', descripcion: '', imagen: '' }); }}>
+        <h4>Editar curso</h4>
+        <form onSubmit={guardarCurso}>
+          <input name="titulo" value={form.titulo} onChange={handleForm} placeholder="Título" required />
+          <textarea name="descripcion" value={form.descripcion} onChange={handleForm} placeholder="Descripción" required />
+          <input name="imagen" value={form.imagen} onChange={handleForm} placeholder="URL de imagen" required />
+          {form.imagen && <img src={form.imagen} alt="preview" style={{width:'100%',maxHeight:120,objectFit:'cover',borderRadius:'0.7rem',margin:'1rem 0'}} />}
+          <button type="submit" className="btn btn-primary">Guardar cambios</button>
+        </form>
+      </Modal>
     </div>
   );
 }
