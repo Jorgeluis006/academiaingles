@@ -23,32 +23,50 @@
     <main>
         <div class="container py-5">
             <h2 class="text-center" style="color: var(--color-purple);">Nuestros Cursos</h2>
-            <div class="row align-items-center mb-5">
-                <div class="col-md-6">
-                    <img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&w=800&q=80" class="img-fluid rounded" alt="Inglés">
+            <div id="cursosCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&w=800&q=80" class="img-fluid rounded" alt="Inglés">
+                            </div>
+                            <div class="col-md-6">
+                                <h3 style="color: var(--color-purple);">Inglés</h3>
+                                <p style="color: var(--color-dark);">Aprende inglés con un enfoque práctico, divertido y personalizado.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <img src="https://images.pexels.com/photos/196652/pexels-photo-196652.jpeg?auto=compress&w=800&q=80" class="img-fluid rounded" alt="Francés">
+                            </div>
+                            <div class="col-md-6">
+                                <h3 style="color: var(--color-purple);">Francés</h3>
+                                <p style="color: var(--color-dark);">Descubre la lengua y cultura francesa con clases dinámicas.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&w=800&q=80" class="img-fluid rounded" alt="Español para extranjeros">
+                            </div>
+                            <div class="col-md-6">
+                                <h3 style="color: var(--color-purple);">Español para extranjeros</h3>
+                                <p style="color: var(--color-dark);">Vive el español como una experiencia cultural y comunicativa.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <h3 style="color: var(--color-purple);">Inglés</h3>
-                    <p style="color: var(--color-dark);">Aprende inglés con un enfoque práctico, divertido y personalizado.</p>
-                </div>
-            </div>
-            <div class="row align-items-center mb-5">
-                <div class="col-md-6 order-md-2">
-                    <img src="https://images.pexels.com/photos/196652/pexels-photo-196652.jpeg?auto=compress&w=800&q=80" class="img-fluid rounded" alt="Francés">
-                </div>
-                <div class="col-md-6 order-md-1">
-                    <h3 style="color: var(--color-purple);">Francés</h3>
-                    <p style="color: var(--color-dark);">Descubre la lengua y cultura francesa con clases dinámicas.</p>
-                </div>
-            </div>
-            <div class="row align-items-center mb-5">
-                <div class="col-md-6">
-                    <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&w=800&q=80" class="img-fluid rounded" alt="Español para extranjeros">
-                </div>
-                <div class="col-md-6">
-                    <h3 style="color: var(--color-purple);">Español para extranjeros</h3>
-                    <p style="color: var(--color-dark);">Vive el español como una experiencia cultural y comunicativa.</p>
-                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#cursosCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#cursosCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
             </div>
         </div>
     </main>
