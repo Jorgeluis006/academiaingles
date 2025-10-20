@@ -1,0 +1,280 @@
+/* Mejoras visuales para cards de cursos */
+.curso-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 2rem 2rem 0 0;
+    transition: filter 0.3s, transform 0.3s;
+}
+.curso-card {
+    min-height: 410px;
+    border-radius: 2rem;
+    box-shadow: 0 8px 32px 0 #c89ab2cc, 0 1.5px 8px 0 #791eba22;
+    overflow: hidden;
+    position: relative;
+    transition: box-shadow 0.3s, transform 0.2s;
+}
+.curso-card:hover {
+    box-shadow: 0 16px 48px 0 #791eba55, 0 2px 16px 0 #c89ab2;
+    transform: translateY(-6px) scale(1.025);
+}
+.curso-card:hover img {
+    filter: brightness(0.85) blur(1px);
+    transform: scale(1.04);
+}
+.curso-card .card-body {
+    background: rgba(255,255,255,0.97);
+    border-radius: 0 0 2rem 2rem;
+    padding: 2rem 1.2rem 1.2rem 1.2rem;
+    position: relative;
+    z-index: 2;
+    min-height: 180px;
+}
+.curso-card .card-title {
+    color: var(--color-purple);
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px #c89ab244;
+}
+.curso-card .card-text {
+    color: var(--color-dark);
+    font-size: 1.08rem;
+    font-weight: 500;
+}
+.curso-card::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background: linear-gradient(180deg, #fff0 60%, #c89ab222 100%);
+    z-index: 1;
+    pointer-events: none;
+    transition: background 0.3s;
+}
+.curso-card:hover::before {
+    background: linear-gradient(180deg, #fff0 40%, #791eba33 100%);
+}
+/* Estilos base para sitio responsivo */
+@import url('palette.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #FFFEF1 0%, #C89AB2 100%);
+    color: var(--color-dark);
+    min-height: 100vh;
+    letter-spacing: 0.01em;
+    transition: background 0.3s;
+    overflow-x: hidden;
+}
+
+a {
+    color: var(--color-purple);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+a:hover {
+    color: var(--color-orange);
+    text-decoration: underline;
+}
+
+.header {
+    background: var(--color-purple);
+    color: #fff;
+    padding: 1.2rem 2.5rem 1.2rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 24px 0 rgba(121,30,186,0.15);
+    border-bottom-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+    animation: fadeInDown 1s cubic-bezier(.4,0,.2,1);
+}
+.header-logo {
+.header-logo {
+    font-weight: 700;
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 1px 2px 8px #c89ab2;
+    transition: transform 0.2s;
+}
+.header-logo:hover {
+    transform: scale(1.06) rotate(-2deg);
+}
+}
+.header-nav a {
+    margin-left: 2rem;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    position: relative;
+    padding-bottom: 2px;
+}
+.header-nav a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--color-yellow);
+    transition: width 0.3s;
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+}
+.header-nav a:hover::after {
+    width: 100%;
+}
+.header-nav a:hover {
+    color: var(--color-yellow);
+}
+
+main {
+    padding: 2.5rem 0 2rem 0;
+}
+
+.container {
+    max-width: 900px;
+}
+
+section {
+    margin-bottom: 2.5rem;
+}
+
+/* Botón principal */
+.btn-lg {
+.btn-lg {
+    font-size: 1.3rem;
+    padding: 1rem 2.5rem;
+    border-radius: 2rem;
+    box-shadow: 0 4px 16px 0 #c89ab2;
+    border: none;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+    background: linear-gradient(90deg, var(--color-yellow) 60%, var(--color-orange) 100%);
+    color: var(--color-dark);
+    font-weight: bold;
+    letter-spacing: 1px;
+    animation: fadeInUp 1.2s cubic-bezier(.4,0,.2,1);
+}
+.btn-lg:hover {
+    background: linear-gradient(90deg, var(--color-orange) 60%, var(--color-yellow) 100%);
+    color: #fff;
+    box-shadow: 0 8px 32px 0 #c89ab2;
+    transform: scale(1.04);
+}
+/* Animaciones clave */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* Animación para secciones */
+section {
+    animation: fadeInUp 1.2s cubic-bezier(.4,0,.2,1);
+}
+/* Sombra y efecto glass para tarjetas */
+.card, #quienes-somos {
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(2px);
+    box-shadow: 0 4px 32px 0 #c89ab2;
+    border-radius: 1.5rem;
+    border: none;
+}
+/* Efecto hover para tarjetas */
+.card:hover, #quienes-somos:hover {
+    box-shadow: 0 8px 48px 0 #791eba44;
+    transform: translateY(-4px) scale(1.01);
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+/* Animación para la mascota */
+img[alt="Mascota Atisbe"] {
+    border-radius: 50%;
+    border: 4px solid var(--color-purple);
+    background: #fff;
+    box-shadow: 0 2px 12px 0 #c89ab2;
+    margin-bottom: 1.5rem;
+    animation: mascotBounce 2.5s infinite cubic-bezier(.4,0,.2,1);
+}
+@keyframes mascotBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px) scale(1.04); }
+}
+::-webkit-scrollbar {
+    width: 10px;
+    background: var(--color-cream);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--color-mauve);
+    border-radius: 8px;
+}
+
+/* Tarjetas y secciones */
+.card {
+    border-radius: 1.5rem;
+    border: none;
+    box-shadow: 0 2px 12px 0 #c89ab2;
+}
+.card-body {
+    border-radius: 1.5rem;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Mascota */
+img[alt="Mascota Atisbe"] {
+    border-radius: 50%;
+    border: 4px solid var(--color-purple);
+    background: #fff;
+    box-shadow: 0 2px 12px 0 #c89ab2;
+    margin-bottom: 1.5rem;
+}
+
+/* Sección Quiénes somos */
+#quienes-somos {
+    background: #fff;
+    border-radius: 1.5rem;
+    box-shadow: 0 2px 12px 0 #c89ab2;
+    padding: 2.5rem 2rem;
+}
+
+@media (max-width: 900px) {
+    .container {
+        max-width: 98vw;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 16px;
+    }
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem 1.2rem;
+        border-radius: 0 0 1.2rem 1.2rem;
+    }
+    .header-logo {
+        font-size: 1.3rem;
+    }
+    .header-nav a {
+        margin-left: 0;
+        margin-right: 1rem;
+        font-size: 1rem;
+    }
+    main {
+        padding: 1rem 0.2rem;
+    }
+    #quienes-somos {
+        padding: 1.2rem 0.5rem;
+    }
+}

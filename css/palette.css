@@ -1,0 +1,9 @@
+/* Paleta de colores personalizada */
+:root {
+  --color-purple: #791EBA;
+  --color-mauve: #C89AB2;
+  --color-cream: #FFFEF1;
+  --color-yellow: #FFF810;
+  --color-orange: #FDBB0F;
+  --color-dark: #333333;
+}
