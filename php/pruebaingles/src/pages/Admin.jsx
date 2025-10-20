@@ -89,17 +89,19 @@ function Admin() {
         <h4>Cursos actuales</h4>
         {loading ? <p>Cargando...</p> : (
           cursos.length === 0 ? <p>No hay cursos.</p> : (
-            cursos.map(curso => (
-              <div className="admin-card" key={curso.id}>
-                <img src={curso.imagen} alt={curso.titulo} style={{ width: '80px', borderRadius: '1rem' }} />
-                <div>
-                  <strong>{curso.titulo}</strong>
-                  <p>{curso.descripcion}</p>
+            <div className="courses-grid">
+              {cursos.map(curso => (
+                <div className="card" key={curso.id}>
+                  <img src={curso.imagen} alt={curso.titulo} className="card-img-top" />
+                  <div className="card-body">
+                    <h5 className="card-title">{curso.titulo}</h5>
+                    <p className="card-text">{curso.descripcion}</p>
+                    <button className="btn btn-primary" onClick={() => editarCurso(curso)}>Editar</button>
+                    <button className="btn" style={{background: '#f87171', marginTop: '0.5rem'}} onClick={() => eliminarCurso(curso.id)}>Eliminar</button>
+                  </div>
                 </div>
-                <button onClick={() => editarCurso(curso)}>Editar</button>
-                <button onClick={() => eliminarCurso(curso.id)}>Eliminar</button>
-              </div>
-            ))
+              ))}
+            </div>
           )
         )}
       </div>

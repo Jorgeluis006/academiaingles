@@ -18,17 +18,19 @@ function Cursos() {
     <div className="cursos-container">
       <h2>Cursos</h2>
       {loading ? <p>Cargando...</p> : (
-        <div className="cursos-list">
-          {cursos.length === 0 ? <p>No hay cursos disponibles.</p> : (
-            cursos.map(curso => (
-              <div className="curso-card" key={curso.id}>
-                <img src={curso.imagen} alt={curso.titulo} className="curso-img" />
-                <h5>{curso.titulo}</h5>
-                <p>{curso.descripcion}</p>
+        cursos.length === 0 ? <p>No hay cursos disponibles.</p> : (
+          <div className="courses-grid">
+            {cursos.map(curso => (
+              <div className="card" key={curso.id}>
+                <img src={curso.imagen} alt={curso.titulo} className="card-img-top" />
+                <div className="card-body">
+                  <h5 className="card-title">{curso.titulo}</h5>
+                  <p className="card-text">{curso.descripcion}</p>
+                </div>
               </div>
-            ))
-          )}
-        </div>
+            ))}
+          </div>
+        )
       )}
     </div>
   );
