@@ -3,6 +3,15 @@ require_once 'db.php';
 header('Content-Type: application/json; charset=utf-8');
 $action = $_GET['action'] ?? '';
 
+// Simple logging para depuración
+$logDir = __DIR__ . '/logs';
+if (!is_dir($logDir)) {
+    @mkdir($logDir, 0755, true);
+}
+$logFile = $logDir . '/testimonios.log';
+$reqBody = @file_get_contents('php://input');
+file_put_contents($logFile, sprintf("%s - ACTION=%s METHOD=%s POST=%s RAW=%s\n", date('c'), $action, $_SERVER['REQUEST_METHOD'], json_encode($_POST), $reqBody), FILE_APPEND);
+
 if ($action === 'listar') {
     $result = $conn->query("SELECT * FROM testimonios ORDER BY creado_at DESC");
     if (!$result) {
