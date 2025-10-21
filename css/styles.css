@@ -30,8 +30,8 @@ button:hover {
 }
 
 header {
-  background-color: var(--color-primary); /* Fondo del header */
-  color: var(--color-text);
+  background-color: #791EBA; /* Fondo del header */
+  color: #000000; /* Color del texto */
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
@@ -52,7 +52,7 @@ nav {
 
 nav a {
   text-decoration: none;
-  color: var(--color-background); /* Color de las letras de los botones */
+  color: #FFFEF1; /* Color de las letras de los botones */
   font-weight: bold;
   padding: 5px 10px;
   border-radius: 5px;
@@ -60,13 +60,13 @@ nav a {
 }
 
 nav a:hover {
-  background-color: var(--color-highlight);
-  color: var(--color-text);
+  background-color: #FFF810; /* Color de resaltado */
+  color: #000000;
 }
 
 nav a#nuestros-cursos {
-    background-color: var(--color-highlight); /* Color del botón 'Nuestros cursos' */
-    color: var(--color-background);
+    background-color: #FFF810; /* Color del botón 'Nuestros cursos' */
+    color: #FFFEF1;
     font-weight: bold;
     padding: 5px 10px;
     border-radius: 5px;
@@ -74,8 +74,8 @@ nav a#nuestros-cursos {
 }
 
 nav a#nuestros-cursos:hover {
-    background-color: var(--color-accent);
-    color: var(--color-text);
+    background-color: #FDBB0F; /* Color de acento */
+    color: #000000;
 }
 
 .btn-warning {
