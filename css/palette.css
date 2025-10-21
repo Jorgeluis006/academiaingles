@@ -5,14 +5,16 @@
   --color-bg: #0e0b16;
   --color-surface: #1a1625;
   --color-surface-alt: #241c35;
-  --color-primary: #8c52ff;      /* Violeta artístico */
-  --color-secondary: #4b8fe2;    /* Azul acento */
-  --color-accent: #f5c542;       /* Dorado suave */
+  --color-primary: #791EBA;      /* Color principal */
+  --color-secondary: #C89AB2;    /* Color secundario */
+  --color-accent: #FDBB0F;       /* Color de acento */
+  --color-highlight: #FFF810;    /* Color de resaltado */
   --color-mauve: #b388ff;
   --color-cream: #f8e9d2;
   --color-dark: #dcdcdc;
   --color-light: #f4f4f4;
   --color-error: #e57373;
+  --color-text: #000000;         /* Color para escritura */
 
   --font-main: 'Poppins', 'Inter', sans-serif;
   --radius-lg: 1rem;
