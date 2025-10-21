@@ -17,7 +17,7 @@
 
 /* Fondo y texto global */
 body {
-  background-color: #ffffff; /* Restaurado al color de fondo original */
+  background-color: #be1e1e; /* Restaurado al color de fondo original */
   color: var(--color-light);
   font-family: var(--font-main);
   line-height: 1.7;
