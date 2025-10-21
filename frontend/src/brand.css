@@ -33,6 +33,17 @@ a{color:var(--primary);text-decoration:none}
 .nav-link{color:var(--muted);margin-left:1rem;padding:.35rem .5rem;border-radius:8px}
 .nav-link:hover{color:var(--primary);background:rgba(121,30,186,0.06)}
 
+/* Nav list */
+.main-nav .nav-list{list-style:none;padding:0;margin:0;display:flex;align-items:center;gap:0.75rem}
+.main-nav .nav-list li{display:inline}
+.main-nav .nav-list.open{display:block}
+.nav-cta{background:var(--accent);color:#000;padding:.45rem .8rem;border-radius:10px}
+
+@media(max-width:767px){
+  .main-nav .nav-list{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg);padding:1rem;box-shadow:0 10px 24px rgba(0,0,0,.06);flex-direction:column}
+  .main-nav .nav-list li{margin:0.4rem 0}
+}
+
 /* Hero */
 .hero{padding:3.25rem 0;display:grid;grid-template-columns:1fr;gap:1.25rem;align-items:center}
 .hero-inner{max-width:700px}
