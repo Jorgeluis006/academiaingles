@@ -1,9 +1,40 @@
-/* Paleta de colores personalizada */
+/* --- PALETA OSCURA ARTÍSTICA --- */
+/* Inspirada en tonos violeta, dorado y azul profundo para una atmósfera cálida y educativa */
+
 :root {
-  --color-purple: #791EBA;
-  --color-mauve: #C89AB2;
-  --color-cream: #FFFEF1;
-  --color-yellow: #FFF810;
-  --color-orange: #FDBB0F;
-  --color-dark: #333333;
+  --color-bg: #0e0b16;
+  --color-surface: #1a1625;
+  --color-surface-alt: #241c35;
+  --color-primary: #8c52ff;      /* Violeta artístico */
+  --color-secondary: #4b8fe2;    /* Azul acento */
+  --color-accent: #f5c542;       /* Dorado suave */
+  --color-mauve: #b388ff;
+  --color-cream: #f8e9d2;
+  --color-dark: #dcdcdc;
+  --color-light: #f4f4f4;
+  --color-error: #e57373;
+
+  --font-main: 'Poppins', 'Inter', sans-serif;
+  --radius-lg: 1rem;
+  --radius-md: 0.75rem;
+  --transition: all 0.3s ease-in-out;
+}
+
+/* Fondo y texto global */
+body {
+  background-color: #f0f0f0; /* Color de fondo actualizado temporalmente */
+  color: var(--color-light);
+  font-family: var(--font-main);
+  line-height: 1.7;
+}
+
+/* Links */
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--color-mauve);
 }
