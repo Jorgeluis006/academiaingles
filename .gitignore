@@ -21,7 +21,6 @@ ehthumbs.db
 Desktop.ini
 
 # Build artifacts
-assets/
 index-*.js
 index-*.css
 
