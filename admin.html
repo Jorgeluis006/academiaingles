@@ -338,9 +338,10 @@ window.eliminarCurso = function(id) {
                 try {
                     body = text ? JSON.parse(text) : null;
                 } catch (e) {
-                    console.error('Respuesta inválida (no JSON):', text);
+                    console.warn('Respuesta inválida (no JSON):', text);
                     showToast('Respuesta inválida del servidor: ' + (text.length > 200 ? text.slice(0, 200) + '...' : text), false);
-                    throw new Error('Invalid JSON');
+                    // No lanzar para que el flujo continúe y no muestre el mensaje genérico
+                    return { status: r.status, ok: r.ok, body: null };
                 }
                 return { status: r.status, ok: r.ok, body };
             })
