@@ -10,6 +10,9 @@
   # Allow PHP API folder to be served directly
   RewriteRule ^php/ - [L]
 
+  # Do not rewrite requests for static assets (JS/CSS/images)
+  RewriteRule ^(js|assets|css|frontend|public|uploads)/ - [L]
+
   # Fallback to index.html for client-side routing (React BrowserRouter)
   RewriteRule ^ index.html [L]
 </IfModule>
