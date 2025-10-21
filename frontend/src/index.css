@@ -21,4 +21,11 @@ body {
 
 header { display:flex; justify-content:space-between; align-items:center; padding:1rem 1.5rem; }
 header h1 { margin:0; }
-nav a { margin-left: 0.75rem; }
+nav a {
+	margin-left: 0.75rem;
+	color: var(--color-dark);
+	text-decoration: none;
+	transition: color 150ms ease;
+}
+
+nav a:hover { color: var(--color-accent); }
