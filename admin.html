@@ -64,7 +64,10 @@
                                 <div id="testimonios-admin" class="mt-4">
                                     <div class="d-flex justify-content-between align-items-center mb-3">
                                         <h4 class="mb-0" style="color: var(--color-purple);">Testimonios</h4>
-                                        <button class="btn btn-success" id="btn-nuevo-testimonio" type="button">Agregar testimonio</button>
+                                        <div>
+                                            <button class="btn btn-secondary me-2" id="btn-crear-tabla-testimonios" type="button">Crear tabla testimonios</button>
+                                            <button class="btn btn-success" id="btn-nuevo-testimonio" type="button">Agregar testimonio</button>
+                                        </div>
                                     </div>
                                     <div id="testimonios-lista" class="row g-4"></div>
                                     <div id="form-testimonio" class="mt-4 d-none">
@@ -314,6 +317,18 @@ window.eliminarCurso = function(id) {
         document.getElementById('form-testimonio-titulo').textContent = 'Agregar testimonio';
         formTestimonio.classList.remove('d-none');
         editandoTestimonio = false;
+    };
+
+    // Crear tabla desde admin (útil en phpMyAdmin si no existe)
+    document.getElementById('btn-crear-tabla-testimonios').onclick = function() {
+        fetch('php/create_testimonios_table.php')
+            .then(r => r.text())
+            .then(text => {
+                alert(text);
+                cargarTestimonios();
+            }).catch(err => {
+                alert('Error al crear la tabla: ' + err);
+            });
     };
 
     cancelarTestimonio.onclick = () => {
