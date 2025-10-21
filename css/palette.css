@@ -15,21 +15,3 @@
   --transition: all 0.3s ease-in-out;
 }
 
-/* Fondo y texto global */
-body {
-  background-color: #be1e1e; /* Restaurado al color de fondo original */
-  color: var(--color-light);
-  font-family: var(--font-main);
-  line-height: 1.7;
-}
-
-/* Links */
-a {
-  color: var(--color-accent);
-  text-decoration: none;
-  transition: var(--transition);
-}
-
-a:hover {
-  color: var(--color-mauve);
-}
