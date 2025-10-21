@@ -159,6 +159,60 @@ h1, h2, h3, h4 {
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
 }
 
+/* Estilos específicos para testimonios */
+#testimonios-list .card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(121, 30, 186, 0.06);
+  background: linear-gradient(180deg, rgba(121,30,186,0.02), rgba(253,187,15,0.01));
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+#testimonios-list .card::before {
+  content: '';
+  display: block;
+  height: 6px;
+  width: 100%;
+  background: linear-gradient(90deg, #791EBA 0%, #FDBB0F 100%);
+}
+
+#testimonios-list .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(121, 30, 186, 0.09);
+}
+
+#testimonios-list .card .card-body {
+  padding: 1.1rem;
+}
+
+#testimonios-list .card-title {
+  color: #791EBA;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+#testimonios-list .card-text {
+  color: var(--color-text);
+  font-size: 0.96rem;
+  line-height: 1.5;
+  margin-bottom: 0.8rem;
+}
+
+#testimonios-list .ratio {
+  border-radius: 0.6rem;
+  overflow: hidden;
+}
+
+#testimonios-list .ratio iframe {
+  border: 0;
+  display: block;
+}
+
+#testimonios-empty {
+  color: #555;
+  font-style: italic;
+}
+
 .alert-info {
   background-color: rgba(140, 82, 255, 0.15);
   border: 1px solid var(--color-primary);
