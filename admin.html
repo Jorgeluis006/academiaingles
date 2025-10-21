@@ -332,8 +332,17 @@ window.eliminarCurso = function(id) {
         formData.append('video_url', video_url);
         if (editandoTestimonio) formData.append('id', id);
         fetch('php/testimonios.php?action=' + (editandoTestimonio ? 'editar' : 'agregar'), { method: 'POST', body: formData })
-            .then(r => {
-                return r.json().then(json => ({ status: r.status, ok: r.ok, body: json }));
+            .then(async r => {
+                const text = await r.text();
+                let body = null;
+                try {
+                    body = text ? JSON.parse(text) : null;
+                } catch (e) {
+                    console.error('Respuesta inválida (no JSON):', text);
+                    showToast('Respuesta inválida del servidor: ' + (text.length > 200 ? text.slice(0, 200) + '...' : text), false);
+                    throw new Error('Invalid JSON');
+                }
+                return { status: r.status, ok: r.ok, body };
             })
             .then(resp => {
                 console.log('RESPUESTA TESTIMONIOS:', resp);
@@ -347,6 +356,7 @@ window.eliminarCurso = function(id) {
                 }
             }).catch(err => {
                 console.error('Error al conectar con la API de testimonios:', err);
+                // Si es un error de red o parsing ya se mostró, aquí mostramos un genérico
                 showToast('Error de conexión al guardar testimonio', false);
             });
     };
