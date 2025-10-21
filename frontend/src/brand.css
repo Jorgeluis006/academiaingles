@@ -1,0 +1,85 @@
+/* Brand stylesheet for Atisbe Academy - follows the brand manual
+   Palette:
+   Primary:  #791EBA
+   Secondary: #C89AB2
+   Background: #FFFEF1
+   Highlight (light): #FFF810
+   Accent/CTA: #FDBB0F
+*/
+
+:root{
+  --primary: #791EBA; /* purple */
+  --secondary: #C89AB2; /* soft mauve */
+  --bg: #FFFEF1; /* soft cream */
+  --accent: #FDBB0F; /* warm orange */
+  --highlight: #FFF810; /* bright yellow */
+  --text: #1f1f1f;
+  --muted: #6b6b6b;
+  --radius: 12px;
+  --card-shadow: 0 10px 30px rgba(16,24,40,0.06);
+}
+
+/* Global */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;}
+a{color:var(--primary);text-decoration:none}
+
+.container{max-width:1100px;margin:0 auto;padding:1.25rem}
+
+/* Header */
+.site-header{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;background:transparent;position:sticky;top:0;z-index:100}
+.site-brand{font-weight:700;color:var(--primary);font-size:1.25rem}
+.nav-link{color:var(--muted);margin-left:1rem;padding:.35rem .5rem;border-radius:8px}
+.nav-link:hover{color:var(--primary);background:rgba(121,30,186,0.06)}
+
+/* Hero */
+.hero{padding:3.25rem 0;display:grid;grid-template-columns:1fr;gap:1.25rem;align-items:center}
+.hero-inner{max-width:700px}
+.hero-title{font-size:2.4rem;line-height:1.05;margin:0 0 .6rem;color:var(--primary);font-weight:800}
+.hero-sub{font-size:1.05rem;color:var(--muted);margin-bottom:1rem}
+.cta{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.25rem;border-radius:14px;cursor:pointer;font-weight:700}
+.btn-primary{background:var(--primary);color:white;border:none}
+.btn-accent{background:var(--accent);color:#000;border:none}
+
+/* Cards and sections */
+.card{background:white;border-radius:var(--radius);box-shadow:var(--card-shadow);padding:1rem}
+.section{padding:2.75rem 0}
+.section-title{color:var(--secondary);font-weight:700;margin-bottom:1rem}
+
+/* Courses grid */
+.course-grid{display:grid;grid-template-columns:repeat(1,1fr);gap:1rem}
+.course-card img{height:220px;object-fit:cover;border-top-left-radius:var(--radius);border-top-right-radius:var(--radius)}
+.course-card .card-body{padding:1rem}
+
+@media(min-width:768px){
+  .hero{grid-template-columns:1fr 420px}
+  .course-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+/* Testimonials */
+.testimonios .card{margin-bottom:1rem}
+.testimonial-video{border-radius:8px;overflow:hidden}
+
+/* Forms */
+input[type=text],input[type=password],textarea{width:100%;padding:.65rem .75rem;border-radius:10px;border:1px solid #e9e6f2;background:#fff}
+input:focus,textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 6px 18px rgba(121,30,186,0.08)}
+
+/* Admin */
+.admin .thumb{width:84px;height:64px;object-fit:cover;border-radius:8px}
+
+/* Small utilities */
+.mb-2{margin-bottom:.5rem}
+.mb-3{margin-bottom:1rem}
+.d-flex{display:flex}
+.gap-1{gap:.5rem}
+
+/* Footer */
+footer{padding:2rem 0;text-align:center;color:var(--muted)}
+
+/* Modal & toast */
+.modal-backdrop-custom{position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center}
+.modal-card{background:white;border-radius:16px;padding:1rem;max-width:540px}
+
+/* Accessibility */
+.sr-only{position:absolute;left:-10000px}
