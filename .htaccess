@@ -2,6 +2,10 @@
   Options -MultiViews
   RewriteEngine On
 
+  # Ensure correct MIME types for JS and CSS
+  AddType application/javascript .js
+  AddType text/css .css
+
   # No rewrite for existing files or directories
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
