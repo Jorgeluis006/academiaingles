@@ -22,7 +22,7 @@
 
 /* Fondo y texto global */
 body {
-  background-color: #f0f0f0; /* Color de fondo actualizado temporalmente */
+  background-color: #ffffff; /* Restaurado al color de fondo original */
   color: var(--color-light);
   font-family: var(--font-main);
   line-height: 1.7;
