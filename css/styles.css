@@ -30,7 +30,7 @@ button:hover {
 }
 
 header {
-  background-color: var(--color-primary);
+  background-color: var(--color-primary); /* Fondo del header */
   color: var(--color-text);
   padding: 10px 20px;
   display: flex;
@@ -52,7 +52,7 @@ nav {
 
 nav a {
   text-decoration: none;
-  color: var(--color-text);
+  color: var(--color-background); /* Color de las letras de los botones */
   font-weight: bold;
   padding: 5px 10px;
   border-radius: 5px;
@@ -62,6 +62,20 @@ nav a {
 nav a:hover {
   background-color: var(--color-highlight);
   color: var(--color-text);
+}
+
+nav a#nuestros-cursos {
+    background-color: var(--color-highlight); /* Color del botón 'Nuestros cursos' */
+    color: var(--color-background);
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav a#nuestros-cursos:hover {
+    background-color: var(--color-accent);
+    color: var(--color-text);
 }
 
 .btn-warning {
