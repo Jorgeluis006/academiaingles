@@ -12,6 +12,19 @@ $logFile = $logDir . '/testimonios.log';
 $reqBody = @file_get_contents('php://input');
 file_put_contents($logFile, sprintf("%s - ACTION=%s METHOD=%s POST=%s RAW=%s\n", date('c'), $action, $_SERVER['REQUEST_METHOD'], json_encode($_POST), $reqBody), FILE_APPEND);
 
+// Asegurar que la tabla exista (útil si no se importó db.sql en phpMyAdmin)
+$createTableSql = "CREATE TABLE IF NOT EXISTS testimonios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    contenido TEXT NOT NULL,
+    video_url VARCHAR(255) DEFAULT NULL,
+    creado_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
+if (!$conn->query($createTableSql)) {
+    file_put_contents($logFile, date('c') . " - ERROR creando tabla testimonios: " . $conn->error . "\n", FILE_APPEND);
+    // No detener ejecución aquí: si falla, las consultas siguientes mostrarán el error hacia el cliente
+}
+
 if ($action === 'listar') {
     $result = $conn->query("SELECT * FROM testimonios ORDER BY creado_at DESC");
     if (!$result) {
