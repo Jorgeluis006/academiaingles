@@ -97,9 +97,15 @@
     </main>
     <script src="css/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Toast visual
+        // Toast visual con fallback a alert si no existe el elemento
         function showToast(msg, success = true) {
             const toast = document.getElementById('toast-admin');
+            if (!toast) {
+                // fallback simple para entornos donde no se haya definido el toast
+                console.log('TOAST: ', msg, success);
+                alert(msg);
+                return;
+            }
             const toastMsg = document.getElementById('toast-admin-msg');
             toastMsg.textContent = msg;
             toast.classList.remove('text-bg-success', 'text-bg-danger');
@@ -314,7 +320,7 @@ window.eliminarCurso = function(id) {
         formTestimonio.classList.add('d-none');
     };
 
-    testimonioForm.onsubmit = function(e) {
+        testimonioForm.onsubmit = function(e) {
         e.preventDefault();
         const id = document.getElementById('testimonio-id').value;
         const nombre = document.getElementById('testimonio-nombre').value.trim();
@@ -326,15 +332,22 @@ window.eliminarCurso = function(id) {
         formData.append('video_url', video_url);
         if (editandoTestimonio) formData.append('id', id);
         fetch('php/testimonios.php?action=' + (editandoTestimonio ? 'editar' : 'agregar'), { method: 'POST', body: formData })
-            .then(r => r.json())
-            .then(data => {
-                if (data.success) {
+            .then(r => {
+                return r.json().then(json => ({ status: r.status, ok: r.ok, body: json }));
+            })
+            .then(resp => {
+                console.log('RESPUESTA TESTIMONIOS:', resp);
+                if (resp.body && resp.body.success) {
                     formTestimonio.classList.add('d-none');
                     cargarTestimonios();
                     showToast(editandoTestimonio ? 'Testimonio editado' : 'Testimonio agregado', true);
                 } else {
-                    showToast(data.msg || 'Error al guardar', false);
+                    const msg = (resp.body && resp.body.msg) ? resp.body.msg : 'Error al guardar';
+                    showToast(msg, false);
                 }
+            }).catch(err => {
+                console.error('Error al conectar con la API de testimonios:', err);
+                showToast('Error de conexión al guardar testimonio', false);
             });
     };
 
