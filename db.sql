@@ -28,3 +28,17 @@ CREATE TABLE usuarios (
 
 -- Ejemplo: crear usuario admin
 INSERT INTO usuarios (nombre, codigo, es_admin) VALUES ('admin', '1234', 1);
+
+-- Tabla de testimonios para la sección pública y administración
+CREATE TABLE IF NOT EXISTS testimonios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    contenido TEXT NOT NULL,
+    video_url VARCHAR(255) DEFAULT NULL,
+    creado_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Ejemplos de testimonios
+INSERT INTO testimonios (nombre, contenido, video_url) VALUES
+('María', 'Atisbe me ayudó a mejorar mi inglés rápidamente y con mucha confianza.', 'https://www.youtube.com/embed/dQw4w9WgXcQ'),
+('Carlos', 'Las clases son amenas y los profesores muy profesionales.', NULL);

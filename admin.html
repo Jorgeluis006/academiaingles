@@ -59,6 +59,35 @@
                                         <button type="button" class="btn btn-secondary ms-2" id="cancelar-curso">Cancelar</button>
                                     </form>
                                 </div>
+                                <!-- Testimonios admin -->
+                                <hr>
+                                <div id="testimonios-admin" class="mt-4">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <h4 class="mb-0" style="color: var(--color-purple);">Testimonios</h4>
+                                        <button class="btn btn-success" id="btn-nuevo-testimonio" type="button">Agregar testimonio</button>
+                                    </div>
+                                    <div id="testimonios-lista" class="row g-4"></div>
+                                    <div id="form-testimonio" class="mt-4 d-none">
+                                        <h5 id="form-testimonio-titulo">Agregar testimonio</h5>
+                                        <form id="testimonioForm">
+                                            <input type="hidden" id="testimonio-id">
+                                            <div class="mb-2">
+                                                <label class="form-label">Nombre</label>
+                                                <input type="text" class="form-control" id="testimonio-nombre" required>
+                                            </div>
+                                            <div class="mb-2">
+                                                <label class="form-label">Contenido</label>
+                                                <textarea class="form-control" id="testimonio-contenido" rows="2" required></textarea>
+                                            </div>
+                                            <div class="mb-2">
+                                                <label class="form-label">URL de video (opcional)</label>
+                                                <input type="url" class="form-control" id="testimonio-video">
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Guardar</button>
+                                            <button type="button" class="btn btn-secondary ms-2" id="cancelar-testimonio">Cancelar</button>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -205,6 +234,111 @@ window.eliminarCurso = function(id) {
     };
 
     cargarCursos();
+    // --- Gestión de testimonios ---
+    const testimoniosLista = document.getElementById('testimonios-lista');
+    const formTestimonio = document.getElementById('form-testimonio');
+    const btnNuevoTestimonio = document.getElementById('btn-nuevo-testimonio');
+    const testimonioForm = document.getElementById('testimonioForm');
+    const cancelarTestimonio = document.getElementById('cancelar-testimonio');
+    let editandoTestimonio = false;
+    let testimonios = [];
+
+    function renderTestimonios() {
+        testimoniosLista.innerHTML = '';
+        testimonios.forEach(t => {
+            const col = document.createElement('div');
+            col.className = 'col-12';
+            col.innerHTML = `
+                <div class="card mb-3 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">${t.nombre}</h5>
+                        <p class="card-text">${t.contenido}</p>
+                        ${t.video_url ? `<div class="ratio ratio-16x9 mb-2"><iframe src="${t.video_url}" title="video" allowfullscreen></iframe></div>` : ''}
+                        <button class="btn btn-sm btn-warning me-2" onclick="editarTestimonio(${t.id})">Editar</button>
+                        <button class="btn btn-sm btn-danger" onclick="eliminarTestimonio(${t.id})">Eliminar</button>
+                    </div>
+                </div>
+            `;
+            testimoniosLista.appendChild(col);
+        });
+    }
+
+    function cargarTestimonios() {
+        fetch('php/testimonios.php?action=listar')
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    testimonios = data.testimonios;
+                    renderTestimonios();
+                }
+            });
+    }
+
+    window.editarTestimonio = function(id) {
+        const t = testimonios.find(x => x.id == id);
+        if (!t) return;
+        document.getElementById('testimonio-id').value = t.id;
+        document.getElementById('testimonio-nombre').value = t.nombre;
+        document.getElementById('testimonio-contenido').value = t.contenido;
+        document.getElementById('testimonio-video').value = t.video_url;
+        document.getElementById('form-testimonio-titulo').textContent = 'Editar testimonio';
+        formTestimonio.classList.remove('d-none');
+        editandoTestimonio = true;
+    }
+
+    window.eliminarTestimonio = function(id) {
+        if (!confirm('¿Seguro que deseas eliminar este testimonio?')) return;
+        const formData = new FormData();
+        formData.append('id', id);
+        fetch('php/testimonios.php?action=eliminar', { method: 'POST', body: formData })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    cargarTestimonios();
+                    showToast('Testimonio eliminado', true);
+                } else {
+                    showToast(data.msg || 'Error al eliminar', false);
+                }
+            });
+    }
+
+    btnNuevoTestimonio.onclick = () => {
+        testimonioForm.reset();
+        document.getElementById('testimonio-id').value = '';
+        document.getElementById('form-testimonio-titulo').textContent = 'Agregar testimonio';
+        formTestimonio.classList.remove('d-none');
+        editandoTestimonio = false;
+    };
+
+    cancelarTestimonio.onclick = () => {
+        formTestimonio.classList.add('d-none');
+    };
+
+    testimonioForm.onsubmit = function(e) {
+        e.preventDefault();
+        const id = document.getElementById('testimonio-id').value;
+        const nombre = document.getElementById('testimonio-nombre').value.trim();
+        const contenido = document.getElementById('testimonio-contenido').value.trim();
+        const video_url = document.getElementById('testimonio-video').value.trim();
+        const formData = new FormData();
+        formData.append('nombre', nombre);
+        formData.append('contenido', contenido);
+        formData.append('video_url', video_url);
+        if (editandoTestimonio) formData.append('id', id);
+        fetch('php/testimonios.php?action=' + (editandoTestimonio ? 'editar' : 'agregar'), { method: 'POST', body: formData })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    formTestimonio.classList.add('d-none');
+                    cargarTestimonios();
+                    showToast(editandoTestimonio ? 'Testimonio editado' : 'Testimonio agregado', true);
+                } else {
+                    showToast(data.msg || 'Error al guardar', false);
+                }
+            });
+    };
+
+    cargarTestimonios();
     </script>
     <script src="js/main.js"></script>
 </body>
